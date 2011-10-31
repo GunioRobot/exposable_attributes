@@ -11,7 +11,7 @@ module ExposableAttributes
     # Defines exposable attributes for AR object.
     #
     # == Examples
-    # 
+    #
     #   class User < ActiveRecord::Base
     #     exposable_attributes :json, :only => [:id, :login]
     #     exposable_attributes :xml,  :except => [:encrypted_password, :salt, :single_access_token]
@@ -41,7 +41,7 @@ module ExposableAttributes
 
       def define_accessor(accessor_name, options)
         access_method_accessor = "exposable_#{accessor_name.to_s}_attributes"
-        self.send(:cattr_accessor, access_method_accessor) 
+        self.send(:cattr_accessor, access_method_accessor)
         self.send("#{access_method_accessor}=", options)
       end
 
